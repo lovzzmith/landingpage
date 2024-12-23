@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rizz Mate - Unleash Your Dating Confidence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* RESET & BASE STYLES */
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Arial", sans-serif;
+      background: #0D0D0F; /* Dark background */
+      color: #EEE;        /* Light text for contrast */
+      line-height: 1.6;
+      overflow-x: hidden; /* Hide horizontal scroll */
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover {
+      color: #00FFC2; /* Neon accent */
+    }
+
+    /* BUTTON STYLES */
+    .btn-primary {
+      background: #00FFC2; 
+      color: #111;
+      font-size: 0.9rem; 
+      padding: 1.4rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+      transition: background-color 0.2s ease;
+    }
+    .btn-primary:hover {
+      background-color: #00DBAA;
+    }
+    .btn-secondary {
+      border: 1px solid #555;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      color: #EEE;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+    }
+    .btn-secondary:hover {
+      background-color: #1A1A1D;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(circle at top, #121214 0%, #0D0D0F 100%);
+      padding: 4rem 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      max-width: 800px;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .hero p {
+      max-width: 600px;
+      margin-bottom: 2rem;
+      color: #ccc;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* The scroll indicator placed AFTER the button & form */
+    .scroll-indicator {
+      margin-top: 1.5rem;
+      color: #666;
+      font-size: 0.85rem;
+      animation: bounce 2s infinite;
+      text-align: center; /* Centered indicator */
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    /* HIDDEN FORM (initially hidden) */
+    .hidden {
+      display: none;
+    }
+    .upload-form {
+      margin-top: 2rem;
+      max-width: 400px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+      background: #19191D;
+      padding: 1.5rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .upload-form h3 {
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    .upload-form label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    .upload-form input {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #444;
+      border-radius: 4px;
+      background: #222;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    /* Audio input styling if you want it to match a standard input look */
+    .upload-form input[type="file"] {
+      cursor: pointer;
+    }
+    .upload-form button[type="submit"] {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 4px;
+      background: #00FFC2;
+      color: #111;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .upload-form button[type="submit"]:hover {
+      background-color: #00DBAA;
+    }
+
+    /* SHOWCASE SECTION */
+    .showcase {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .showcase h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .showcase-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    .showcase-content img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .showcase-text p {
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    /* FEATURES SECTION */
+    .features {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .accent-text {
+      color: #00FFC2; /* The same neon green as your button */
+      font-weight: bold; /* optional if you want it a bit bolder */
+    }
+    .features h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .feature-card {
+      background: #19191D;
+      border-radius: 6px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .feature-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    /* AI/ASSISTANT SECTION */
+    .assistant {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .assistant h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .assistant p {
+      max-width: 700px;
+      margin: 0.5rem auto 2.5rem;
+      color: #ccc;
+    }
+    .assistant-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .assistant-card {
+      flex: 0 1 300px;
+      background: #19191D;
+      padding: 1.5rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      text-align: left;
+    }
+    .assistant-card h4 {
+      margin-bottom: 0.5rem;
+      color: #FFF;
+    }
+    .assistant-card p {
+      color: #bbb;
+      font-size: 0.95rem;
+    }
+
+    /* FINAL CTA SECTION */
+    .final-cta {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: radial-gradient(circle at bottom, #121214 0%, #0D0D0F 100%);
+    }
+    .final-cta h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .final-cta p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: #ccc;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0A0A0C;
+      padding: 2rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+    }
+    footer a {
+      color: #666;
+      margin: 0 0.5rem;
+    }
+    footer a:hover {
+      color: #EEE;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .showcase-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">Rizz Mate</div>
+  <div class="nav-links">
+    <!-- Possibly keep or remove "Learn More" if you want minimal links -->
+    <a href="#" class="btn-primary" id="uploadNavButton">Upload Audio</a>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <h1>Unleash the Power of Your Rizz</h1>
+  <p>
+    A thousand Dating Coaches in your pocket.
+  </p>
+    Understand what you're doing wrong and get the girls you want.
+  </p>
+
+  <!-- Upload Audio button -->
+  <div class="hero-buttons">
+    <button class="btn-primary" id="heroUploadBtn">Upload Audio</button>
+  </div>
+
+  <!-- Hidden upload form -->
+  <div id="audioForm" class="upload-form hidden">
+    <h3>Upload Your Audio</h3>
+    <form id="audioFormElement">
+      <label for="nameField">Name</label>
+      <input 
+        type="text" 
+        id="nameField" 
+        name="name" 
+        required 
+        placeholder="Your Name"
+      >
+
+      <label for="emailField">Email</label>
+      <input 
+        type="email" 
+        id="emailField" 
+        name="_replyto" 
+        required 
+        placeholder="you@example.com"
+      >
+
+      <label for="audioFile">Audio File (max ~15min)</label>
+      <input 
+        type="file" 
+        id="audioFile" 
+        name="audioFile" 
+        accept="audio/*" 
+        required
+      >
+
+      <button type="submit">Send File</button>
+    </form>
+
+    <!-- Submission response message -->
+    <p id="formResponse" class="hidden" style="margin-top: 1rem; color: #00FFC2;">
+      Your audio has been uploaded! We'll send your detailed feedback via email within 24 hours.
+    </p>
+  </div>
+
+  <!-- "Scroll for details" below button & form -->
+  <div class="scroll-indicator">↓ Scroll for details</div>
+</section>
+
+<!-- SHOWCASE SECTION -->
+<section class="showcase">
+  <h2>How does it work?</h2>
+  <div class="showcase-content">
+    <div class="showcase-text">
+        Upload an audio file you've recorded from an interaction you've had with a potential partner. We'll analyze it and get back to you with a   <span class="accent-text">detailed report</span>.
+    </p>
+        For top results, the audios should be of openers and the first minutes of a conversation between strangers.
+        </p>
+    </div>
+    <img src="Images/image1.jpg" 
+         alt="Rizz Mate App Preview">
+  </div>
+</section>
+<!-- FEATURES SECTION -->
+<section class="features">
+  <h2>Master Social Dynamics</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+    <h3>Language Analysis</h3>
+    <p>Enhance your communication skills with our comprehensive analysis of vocabulary, grammar, and filler words.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Frame Control</h3>
+    <p>Gain insights into the dynamics of your interactions and ensure you maintain the desired frame.</p>
+    </div>
+    <div class="feature-card">
+    <h3>Logical vs Emotional</h3>
+    <p>Identify missed opportunities for escalation and learn how to recognize and act on subtle cues in your interactions.</p>
+    </div>
+    <div class="feature-card">
+    <h3>Overall Performance</h3>
+    <p>Discover how you stack up against others. Identify areas for improvement and strive to be in the top 1% of men.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>See Where Social Mastery Can Take You</h2>
+  <p>
+    Discover the transformative power of personalized feedback and take control of your dating life. Upload your audio today and start your journey towards becoming the best version of yourself.
+  </p>
+  <button class="btn-primary" id="bottomUploadBtn">Upload Audio</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2024 Rizz Mate. All rights reserved.</p>
+  <p>
+    <a href="#">Privacy Policy</a> • 
+    <a href="#">Terms of Service</a>
+  </p>
+</footer>
+
+<script>
+  // ========== TOGGLE/HIDE FORM ==========
+  const uploadNavButton = document.getElementById('uploadNavButton');
+  const heroUploadBtn   = document.getElementById('heroUploadBtn');
+  const bottomUploadBtn = document.getElementById('bottomUploadBtn');
+  const audioForm       = document.getElementById('audioForm');
+
+  // Helper function to show the form
+  function showAudioForm() {
+    audioForm.classList.remove('hidden');
+    audioForm.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Attach click events
+  uploadNavButton.addEventListener('click', (e) => {
+    e.preventDefault(); // prevent anchor default if needed
+    showAudioForm();
+  });
+  heroUploadBtn.addEventListener('click', showAudioForm);
+  bottomUploadBtn.addEventListener('click', showAudioForm);
+</script>
+
+<script>
+  // ========== FORM SUBMISSION (AJAX) ==========
+  const audioFormElement = document.getElementById('audioFormElement');
+  const formResponse     = document.getElementById('formResponse');
+
+  audioFormElement.addEventListener('submit', async function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Gather form data
+    const formData = new FormData(audioFormElement);
+
+    try {
+      // Example: POST to Formspree endpoint or your own backend
+      const response = await fetch('https://formspree.io/f/xkggwlzb', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        // Show success message
+        formResponse.textContent = 
+          "Your audio has been uploaded! We'll send feedback via email within 24 hours.";
+        formResponse.style.color = '#00FFC2';
+        formResponse.classList.remove('hidden');
+        audioFormElement.reset();
+      } else {
+        formResponse.textContent = 'Oops! Something went wrong. Please try again.';
+        formResponse.style.color = '#FF6E6C';
+        formResponse.classList.remove('hidden');
+      }
+    } catch (error) {
+      formResponse.textContent = 'Network error. Please check your connection.';
+      formResponse.style.color = '#FF6E6C';
+      formResponse.classList.remove('hidden');
+    }
+  });
+</script>
+
+</body>
+</html>
